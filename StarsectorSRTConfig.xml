@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Tint01\Fullstack Dev Marshall\Personal Projects\Starsector\SRT-Modernized-GIT\bin\SRT.jar</jar>
+  <outfile>C:\Users\Tint01\Fullstack Dev Marshall\Personal Projects\Starsector\SRT-Modernized-GIT\SRT.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Tint01\Fullstack Dev Marshall\Personal Projects\Starsector\SRT-Modernized-GIT\icon.ico</icon>
+  <singleInstance>
+    <mutexName>SRT.exe</mutexName>
+    <windowTitle>SRT.exe</windowTitle>
+  </singleInstance>
+  <classPath>
+    <mainClass>sj.editor.MainWindow</mainClass>
+    <cp>lib/flatlaf-3.7.jar</cp>
+    <cp>lib/gson-2.8.0.jar</cp>
+    <cp>lib/super-csv-2.4.0.jar</cp>
+    <cp>lib/commons-lang3-3.6.jar</cp>
+    <cp>lib/JOrtho-SRT.jar</cp>
+  </classPath>
+  <jre>
+    <path>JRE</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JOrtho-SRT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/JOrtho-SRT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

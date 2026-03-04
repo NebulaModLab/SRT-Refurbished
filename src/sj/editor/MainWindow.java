@@ -44,7 +44,7 @@ public class MainWindow extends JFrame {
     private static MainWindow INSTANCE;
     private static final Logger logger = Logger.getLogger(MainWindow.class.getName());
 
-    private static final String version = "2.4.0";
+    private static final String version = "3.0.0";
 
     private final SRTMenuBar menuBar;
     private final EditorSplitPane editorPanes;

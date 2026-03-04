@@ -8,8 +8,8 @@
 
 package sj.editor.data;
 
-//import com.inet.jortho.CustomDictionaryProvider;
-import io.github.geniot.jortho.CustomDictionaryProvider;
+import com.inet.jortho.CustomDictionaryProvider;
+//import io.github.geniot.jortho.CustomDictionaryProvider;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

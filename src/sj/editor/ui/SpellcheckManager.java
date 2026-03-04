@@ -1,7 +1,7 @@
 package sj.editor.ui;
 
-//import com.inet.jortho.SpellChecker;
-import io.github.geniot.jortho.SpellChecker;
+import com.inet.jortho.SpellChecker;
+//import io.github.geniot.jortho.SpellChecker;
 import java.io.File;
 import java.net.*;
 import java.util.*;
