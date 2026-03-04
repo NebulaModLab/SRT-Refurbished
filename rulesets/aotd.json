@@ -1,0 +1,36 @@
+{
+  "name": "aotd",
+  "saveLocation": "C:\\Users\\money\\Game Installations\\Starsector\\0.98-RC8-test\\mods\\Ashes of  The Domain - Virtue Of Society\\data\\campaign\\rules.csv",
+  "triggers": [
+    "TriggerAutomatedDefenses",
+    "BeatDefendersContinue"
+  ],
+  "commands": [
+    {
+      "name": "SalvageGenFromSeed"
+    },
+    {
+      "name": "SalvageDefenderInteraction"
+    },
+    {
+      "name": "ProjectCharonGenLoot"
+    }
+  ],
+  "cVariables": [
+    "$aotd_quest_theta",
+    "theta_explore",
+    "salBeatDefendersContinue",
+    "explore_theta",
+    "defaultLeave",
+    "thetaSalvage"
+  ],
+  "sVariables": [
+    "theta_explore",
+    "salBeatDefendersContinue",
+    "explore_theta",
+    "defaultLeave",
+    "thetaSalvage"
+  ],
+  "tVariables": [],
+  "forcedBlockedRules": []
+}
