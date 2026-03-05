@@ -11,7 +11,7 @@ package sj.editor.data;
 import java.util.Stack;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class FileStack extends Stack {
     private final int fileId;

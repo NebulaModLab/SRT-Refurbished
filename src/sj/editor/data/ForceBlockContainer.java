@@ -11,7 +11,7 @@ package sj.editor.data;
 import java.util.List;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class ForceBlockContainer {
     private final String ruleId;

@@ -9,7 +9,7 @@
 package sj.editor.data;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  * Note to self: implement the Galil rule (skipping sections that are known to match) at some point.
  */
 public class BoyerMooreParser {

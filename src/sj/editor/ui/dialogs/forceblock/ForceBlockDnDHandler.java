@@ -18,7 +18,7 @@ import javax.swing.*;
 import sj.editor.ui.dialogs.AboutDialog;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class ForceBlockDnDHandler extends TransferHandler {
     private static final Logger logger = Logger.getLogger(AboutDialog.class.getName());

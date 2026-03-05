@@ -37,7 +37,7 @@ import sj.editor.io.json.*;
 import sj.editor.ui.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
  */
 public class MainWindow extends JFrame {
     private static int NEXT_FILE_ID = 1;
@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
     private MainWindow() {
         logger.log(Level.FINE, "Constructing");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // Handled by exit()
-        setTitle("Purple Nebula's SRT Modernized"); // SafariJohn's Rules Tool
+        setTitle("SRT Revised"); // SafariJohn's Rules Tool
         setMinimumSize(new java.awt.Dimension(700, 500));
         setIconImage(new ImageIcon("icon.png").getImage());
 
@@ -390,6 +390,16 @@ public class MainWindow extends JFrame {
     }
 
     public void exit() {
+
+        // v3.0.0 - Update theme when changed in the settings - Purple Nebula
+        if (UIManager.getLookAndFeel() != settings.getLookAndFeel()) {
+            try {
+                UIManager.setLookAndFeel(settings.getLookAndFeel());
+            } catch (UnsupportedLookAndFeelException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         // Save settings
         // Check if unsaved changes to active rulesets
         List<Ruleset> saveRulesets = new ArrayList<>();

@@ -13,7 +13,7 @@ import java.util.List;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class Command {
     public enum FieldType {

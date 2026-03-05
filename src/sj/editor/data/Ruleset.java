@@ -15,7 +15,7 @@ import sj.editor.data.rules.DirectoryFile;
 import sj.editor.data.rules.RuleFile;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class Ruleset extends InternalFile {
     private String oName;

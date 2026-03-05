@@ -2,9 +2,11 @@ package pn.flatlaf.themes;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
-public class FlatlafPurpleNebula
-	extends FlatDarkLaf
-{
+/**
+ * @author: Purple Nebula (SRT Revised)
+ */
+public class FlatlafPurpleNebula extends FlatDarkLaf {
+
 	public static final String NAME = "Flatlaf Purple";
 
 	public static boolean setup() {

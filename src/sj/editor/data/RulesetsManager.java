@@ -17,7 +17,7 @@ import sj.editor.data.commands.Command;
 import sj.editor.data.commands.Command.ShowOn;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class RulesetsManager {
     public static enum DataType {

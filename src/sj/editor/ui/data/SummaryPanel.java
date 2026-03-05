@@ -22,7 +22,7 @@ import sj.editor.ui.SRTInterface;
 import sj.editor.ui.SpellcheckManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class SummaryPanel extends JPanel implements SRTInterface {
     private static final Logger logger = Logger.getLogger(SummaryPanel.class.getName());

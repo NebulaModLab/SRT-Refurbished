@@ -15,7 +15,7 @@ import sj.editor.data.commands.Command.FieldType;
 import sj.editor.data.commands.CommandField;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class CommandSerializer implements JsonSerializer<Command> {
     // Command keys

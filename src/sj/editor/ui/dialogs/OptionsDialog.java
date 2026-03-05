@@ -19,7 +19,7 @@ import sj.editor.data.Settings;
 import sj.editor.ui.SpellcheckManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
  */
 public class OptionsDialog extends JDialog {
     private final JLabel saveLocLabel = new JLabel();
@@ -51,6 +51,7 @@ public class OptionsDialog extends JDialog {
     public OptionsDialog() {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setMinimumSize(new Dimension(400, 300)); // 250
+        setLocationRelativeTo(null); // v3.0.0 - Centers dialog when opened - Purple Nebula
         setTitle("Options");
         setAlwaysOnTop(true);
         setResizable(false);
@@ -117,6 +118,7 @@ public class OptionsDialog extends JDialog {
             }
         });
 
+        // v3.0.0 - Purple Nebula
         lookFeelLabel.setText("Theme:");
         lookFeelComboBox.setEditable(false);
 
@@ -131,7 +133,7 @@ public class OptionsDialog extends JDialog {
                 lookFeelComboBox.setSelectedItem(settings.getLookAndFeel());
             }
         });
-
+        // ======================
 
         okButton.setText("OK");
         okButton.addActionListener(new ActionListener() {
@@ -280,18 +282,15 @@ public class OptionsDialog extends JDialog {
         }
         SpellcheckManager.enableSpellchecking(enableSpellcheckBox.isSelected());
 
+        // v3.0.0 - Purple Nebula
         if (UIManager.getLookAndFeel() != settings.getLookAndFeel()) {
             for (LookAndFeel lookAndFeel : settings.getLookAndFeels()) {
                 if (!lookAndFeel.getName().equals(lookFeelComboBox.getSelectedItem())) continue;
-                JOptionPane.showMessageDialog(null, "Restart SRT for theme changes to take effect!", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Restart SRT for theme changes to take effect!", "Attention", JOptionPane.INFORMATION_MESSAGE);
                 settings.setLookAndFeel(lookAndFeel);
-                try {
-                    UIManager.setLookAndFeel(settings.getLookAndFeel());
-                } catch (UnsupportedLookAndFeelException e) {
-                    throw new RuntimeException(e);
-                }
             }
         }
+        // ======================
 
         MainWindow.getInstance().refreshAllData();
     }

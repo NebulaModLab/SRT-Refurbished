@@ -11,7 +11,7 @@ package sj.editor.data.commands;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class TFVContainer {
     private final String tfv;

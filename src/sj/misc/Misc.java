@@ -11,7 +11,7 @@ package sj.misc;
 import java.util.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class Misc {
 

@@ -32,7 +32,7 @@ import sj.editor.io.json.CommandSerializer.CommandFieldSerializer;
 import sj.editor.ui.dialogs.RulesetNameDialog;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class FileIO_V2 {
     private static final Logger logger = Logger.getLogger(FileIO_V2.class.getName());

@@ -14,7 +14,7 @@ import java.util.*;
 import sj.editor.data.ForceBlockContainer;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class ForceBlockDeserializer implements JsonDeserializer<List<ForceBlockContainer>> {
     public static final String FORCEDBLOCKED_RULES = "forcedBlockedRules";

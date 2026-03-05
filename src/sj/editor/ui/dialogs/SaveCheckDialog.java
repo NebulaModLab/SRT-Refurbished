@@ -18,7 +18,7 @@ import sj.editor.data.Ruleset;
 import sj.editor.io.file.FileIO_V2;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class SaveCheckDialog extends JDialog {
     private final JLabel rulesetsLabel = new JLabel();

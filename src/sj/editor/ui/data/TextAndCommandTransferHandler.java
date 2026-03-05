@@ -24,7 +24,7 @@ import sj.editor.ui.dialogs.commands.CommandInputDialog;
 import sj.misc.JavaTextTransferHandler;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class TextAndCommandTransferHandler extends JavaTextTransferHandler {
     private static final Logger logger = Logger.getLogger(TextAndCommandTransferHandler.class.getName());

@@ -28,7 +28,7 @@ import sj.editor.data.commands.CommandField;
 import sj.editor.ui.data.KeyFilter;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public abstract class EditCommandFieldPanel extends JPanel {
     private static final Color ERROR_COLOR = Color.RED;

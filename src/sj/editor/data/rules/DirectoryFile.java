@@ -12,7 +12,7 @@ import java.util.*;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class DirectoryFile extends RuleFile {
     private final List<DirectoryFile> branches;

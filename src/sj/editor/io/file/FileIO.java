@@ -27,7 +27,7 @@ import sj.misc.Misc;
 /**
  * This class has been deprecated by FileIO_V2.
  *
- * Author: SafariJohn
+ * @author SafariJohn
  * Contributers: Armithaig
  */
 @Deprecated

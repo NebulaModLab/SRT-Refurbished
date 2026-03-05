@@ -12,7 +12,7 @@ import java.util.*;
 import sj.editor.data.Ruleset;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  * Technically the "Core" stuff - vanilla content stuff is kept in
  * Vanilla.csv and Vanilla.json
  */

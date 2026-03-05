@@ -13,7 +13,7 @@ import sj.editor.data.FileStack;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class RulesetStack extends FileStack {
 

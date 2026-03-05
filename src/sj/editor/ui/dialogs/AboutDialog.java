@@ -16,7 +16,7 @@ import javax.swing.*;
 import sj.editor.MainWindow;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class AboutDialog extends JDialog {
     private static final Logger logger = Logger.getLogger(AboutDialog.class.getName());

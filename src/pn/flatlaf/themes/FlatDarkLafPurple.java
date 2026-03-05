@@ -3,18 +3,18 @@ package pn.flatlaf.themes;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 /**
- * @author: Purple Nebula (SRT Revised)
+ * @author Purple Nebula (SRT Revised)
  */
-public class FlatlafRemnant extends FlatDarkLaf {
+public class FlatDarkLafPurple extends FlatDarkLaf {
 
-	public static final String NAME = "Starsector Remnant";
+	public static final String NAME = "Flatlaf Dark Purple";
 
 	public static boolean setup() {
-		return setup( new FlatlafRemnant() );
+		return setup( new FlatDarkLafPurple() );
 	}
 
 	public static void installLafInfo() {
-		installLafInfo( NAME, FlatlafRemnant.class );
+		installLafInfo( NAME, FlatDarkLafPurple.class );
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class FlatlafRemnant extends FlatDarkLaf {
 	}
 
 	public String getDescription() {
-		return "FlatLaf base, Starsector Remnant themed";
+		return "FlatLaf dark with purple accents";
 	}
 
 	public boolean isDark() {

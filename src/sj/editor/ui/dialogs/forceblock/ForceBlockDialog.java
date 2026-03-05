@@ -15,7 +15,7 @@ import sj.editor.MainWindow;
 import sj.editor.data.rules.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class ForceBlockDialog extends JDialog {
 

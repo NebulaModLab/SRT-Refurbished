@@ -2,9 +2,11 @@ package pn.flatlaf.themes;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
-public class FlatlafAoTD
-	extends FlatDarkLaf
-{
+/**
+ * @author: Purple Nebula (SRT Revised)
+ */
+public class FlatlafAoTD extends FlatDarkLaf {
+
 	public static final String NAME = "Ashes of The Domain";
 
 	public static boolean setup() {

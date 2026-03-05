@@ -17,7 +17,7 @@ import com.google.gson.JsonSerializer;
 import sj.editor.data.Settings;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class SettingsSerializer implements JsonSerializer<Settings> {
 

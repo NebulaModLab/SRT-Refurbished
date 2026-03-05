@@ -18,7 +18,7 @@ import javax.swing.TransferHandler;
 import sj.editor.data.commands.Command;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class CommandDnDHandler extends TransferHandler {
     @Override

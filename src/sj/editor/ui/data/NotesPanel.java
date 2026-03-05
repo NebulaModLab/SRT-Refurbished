@@ -26,7 +26,7 @@ import sj.editor.ui.SpellcheckManager;
 import sj.misc.Misc;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class NotesPanel extends JPanel implements SRTInterface {
     private static final Logger logger = Logger.getLogger(NotesPanel.class.getName());

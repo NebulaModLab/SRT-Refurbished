@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import sj.editor.data.rules.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class RuleSerializer implements JsonSerializer<RuleFile> {
     // RuleBean keys

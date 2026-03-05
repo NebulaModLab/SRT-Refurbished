@@ -29,7 +29,7 @@ import sj.editor.data.rules.*;
 import sj.misc.Misc;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class EditorSplitPane extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(EditorSplitPane.class.getName());

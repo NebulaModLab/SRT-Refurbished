@@ -21,7 +21,7 @@ import sj.editor.data.rules.DirectoryFile;
 import sj.editor.data.rules.RuleFile;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class TreeTransferHandler extends TransferHandler {
     private static final Logger logger = Logger.getLogger(TreeTransferHandler.class.getName());

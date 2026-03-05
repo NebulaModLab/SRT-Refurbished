@@ -1,9 +1,10 @@
-Version 3.0.0 by Purple Nebula
+Version 3.0.0 - Revised by Purple Nebula
  Changes:
- - Modernized Renewed Look
+ - Renewed Look
  - Added a themes feature, allowing the user to change how the tool looks.
    - Dark mode is now default, no more blinding in the evening :)
-   - Ships with 4 themes by default
+   - Ships with 9 themes by default
+   - Original theme available for those who prefer it over
 
 
 Version 2.4.0

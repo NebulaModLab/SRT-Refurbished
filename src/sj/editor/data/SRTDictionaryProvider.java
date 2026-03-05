@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 import sj.editor.data.commands.Command;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class SRTDictionaryProvider implements CustomDictionaryProvider {
     private static final Logger logger = Logger.getLogger(SRTDictionaryProvider.class.getName());

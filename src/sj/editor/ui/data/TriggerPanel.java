@@ -31,7 +31,7 @@ import sj.editor.ui.SRTInterface;
 import sj.misc.Misc;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class TriggerPanel extends JPanel implements SRTInterface {
     private static final Logger logger = Logger.getLogger(TriggerPanel.class.getName());

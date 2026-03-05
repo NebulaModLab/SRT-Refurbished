@@ -19,7 +19,7 @@ import javax.swing.*;
 import static sj.editor.io.json.SettingsSerializer.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class SettingsDeserializer implements JsonDeserializer<Settings> {
 

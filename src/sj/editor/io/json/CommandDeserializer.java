@@ -21,7 +21,7 @@ import static sj.editor.io.json.CommandSerializer.*;
 import static sj.editor.io.json.CommandSerializer.CommandFieldSerializer.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class CommandDeserializer implements JsonDeserializer<Command> {
     private static final Logger logger = Logger.getLogger(CommandDeserializer.class.getName());

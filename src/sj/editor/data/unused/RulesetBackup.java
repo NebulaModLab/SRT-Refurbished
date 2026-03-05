@@ -13,7 +13,7 @@ import sj.editor.data.Ruleset;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class RulesetBackup {
     private final List<Ruleset> rulesets;

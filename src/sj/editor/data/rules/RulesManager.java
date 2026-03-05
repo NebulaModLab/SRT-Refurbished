@@ -15,7 +15,7 @@ import sj.editor.data.Ruleset;
 import sj.editor.data.RulesetsManager;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public class RulesManager {
     private static final ArrayList<FileStack> undoArray = new ArrayList();

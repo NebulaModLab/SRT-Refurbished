@@ -11,7 +11,7 @@ package sj.editor.data;
 import sj.editor.MainWindow;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn
  */
 public abstract class InternalFile {
     private final int id;

@@ -12,16 +12,16 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import pn.flatlaf.themes.FlatlafAoTD;
-import pn.flatlaf.themes.FlatlafPurpleNebula;
-import pn.flatlaf.themes.FlatlafRemnant;
+import com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel;
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+import pn.flatlaf.themes.*;
 
 import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
 /**
- * Author: SafariJohn
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
  */
 public class Settings {
     private final List<String> previousRulesets;
@@ -55,10 +55,14 @@ public class Settings {
         lookAndFeel = null;
         lookAndFeels = new ArrayList<>();
         lookAndFeels.add(new FlatDarkLaf());
+        lookAndFeels.add(new FlatDarkLafPurple());
+        lookAndFeels.add(new FlatDarkLafRed());
         lookAndFeels.add(new FlatLightLaf());
-        lookAndFeels.add(new FlatlafPurpleNebula());
         lookAndFeels.add(new FlatlafAoTD());
+        lookAndFeels.add(new FlatlafPurpleNebula());
         lookAndFeels.add(new FlatlafRemnant());
+        lookAndFeels.add(new WindowsLookAndFeel());
+        lookAndFeels.add(new WindowsClassicLookAndFeel());
     }
 
     /**
