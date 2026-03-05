@@ -12,6 +12,9 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import pn.flatlaf.themes.FlatlafAoTD;
+import pn.flatlaf.themes.FlatlafPurpleNebula;
+import pn.flatlaf.themes.FlatlafRemnant;
 
 import javax.swing.*;
 import java.io.File;
@@ -48,12 +51,14 @@ public class Settings {
         availableLanguages = new ArrayList<>();
         availableLanguages.add(language);
 
+        // Set up the themes for the theme picker
         lookAndFeel = null;
         lookAndFeels = new ArrayList<>();
         lookAndFeels.add(new FlatDarkLaf());
-        lookAndFeels.add(new FlatDarculaLaf());
-        lookAndFeels.add(new FlatIntelliJLaf());
         lookAndFeels.add(new FlatLightLaf());
+        lookAndFeels.add(new FlatlafPurpleNebula());
+        lookAndFeels.add(new FlatlafAoTD());
+        lookAndFeels.add(new FlatlafRemnant());
     }
 
     /**
