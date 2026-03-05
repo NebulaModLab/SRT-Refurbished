@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
     private MainWindow() {
         logger.log(Level.FINE, "Constructing");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // Handled by exit()
-        setTitle("SRT Revised"); // SafariJohn's Rules Tool
+        setTitle("Name Placeholder"); // SafariJohn's Rules Tool
         setMinimumSize(new java.awt.Dimension(700, 500));
         setIconImage(new ImageIcon("icon.png").getImage());
 
