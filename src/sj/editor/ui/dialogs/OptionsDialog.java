@@ -8,10 +8,11 @@
 
 package sj.editor.ui.dialogs;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
 import sj.editor.MainWindow;
 import sj.editor.data.SearchManager;
@@ -19,7 +20,7 @@ import sj.editor.data.Settings;
 import sj.editor.ui.SpellcheckManager;
 
 /**
- * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class OptionsDialog extends JDialog {
     private final JLabel saveLocLabel = new JLabel();
@@ -31,6 +32,9 @@ public class OptionsDialog extends JDialog {
     private final JButton modsLocButton = new JButton();
 
     private final JCheckBox safeModeCheckBox = new JCheckBox();
+
+    private final JCheckBox resetSizeLocCheckBox = new JCheckBox();
+    private final JCheckBox resetDividersCheckBox = new JCheckBox();
 
     private final JCheckBox enableSpellcheckBox = new JCheckBox();
 
@@ -50,7 +54,7 @@ public class OptionsDialog extends JDialog {
 
     public OptionsDialog() {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setMinimumSize(new Dimension(400, 300)); // 250
+        setMinimumSize(new Dimension(400, 350)); // 250
         setLocationRelativeTo(null); // v3.0.0 - Centers dialog when opened - Purple Nebula
         setTitle("Options");
         setAlwaysOnTop(true);
@@ -88,6 +92,28 @@ public class OptionsDialog extends JDialog {
         safeModeCheckBox.setText("Safe Mode");
         safeModeCheckBox.setToolTipText("Safe mode requires changes to be \"committed\" to affect the original CSV.");
         safeModeCheckBox.setSelected(settings.isSafeMode());
+
+        resetSizeLocCheckBox.setText("Reset window size & location upon restart");
+        resetSizeLocCheckBox.setToolTipText("Resets the window size and location upon restart");
+        resetSizeLocCheckBox.setSelected(settings.doResetSizeLocation());
+        resetSizeLocCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (resetSizeLocCheckBox.isSelected()) {
+                    resetDividersCheckBox.setSelected(true);
+                    resetDividersCheckBox.setEnabled(true);
+                    resetDividersCheckBox.setForeground(resetSizeLocCheckBox.getForeground());
+                } else {
+                    resetDividersCheckBox.setSelected(false);
+                    resetDividersCheckBox.setEnabled(false);
+                    resetDividersCheckBox.setForeground(Color.GRAY);
+                }
+            }
+        });
+
+        resetDividersCheckBox.setText("Reset divider location upon restart");
+        resetDividersCheckBox.setToolTipText("Resets the dividers upon restart (requires window size & location reset)");
+        resetDividersCheckBox.setSelected(settings.doResetDividers());
 
         enableSpellcheckBox.setText("Enable Spellchecking");
         enableSpellcheckBox.setSelected(settings.isSpellchecking());
@@ -166,6 +192,8 @@ public class OptionsDialog extends JDialog {
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(modsLocButton))
                         .addComponent(safeModeCheckBox)
+                        .addComponent(resetSizeLocCheckBox)
+                        .addComponent(resetDividersCheckBox)
                         .addComponent(enableSpellcheckBox)
                         .addComponent(languageLabel)
                         .addComponent(languageComboBox)
@@ -198,6 +226,10 @@ public class OptionsDialog extends JDialog {
                         .addComponent(modsLocButton))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(safeModeCheckBox)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(resetSizeLocCheckBox)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(resetDividersCheckBox)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(enableSpellcheckBox)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -273,6 +305,8 @@ public class OptionsDialog extends JDialog {
 //        settings.setSaveLocation(new File(saveLocField.getText()));
         settings.setModsLocation(new File(modsLocField.getText()));
         settings.setSafeMode(safeModeCheckBox.isSelected());
+        settings.setResetSizeLocation(resetSizeLocCheckBox.isSelected());
+        settings.setResetDividers(resetDividersCheckBox.isSelected());
 
         if (enableSpellcheckBox.isSelected()) {
             settings.setLanguage((Locale) languageComboBox.getSelectedItem());
@@ -283,13 +317,14 @@ public class OptionsDialog extends JDialog {
         SpellcheckManager.enableSpellchecking(enableSpellcheckBox.isSelected());
 
         // v3.0.0 - Purple Nebula
-        if (UIManager.getLookAndFeel() != settings.getLookAndFeel()) {
-            for (LookAndFeel lookAndFeel : settings.getLookAndFeels()) {
-                if (!lookAndFeel.getName().equals(lookFeelComboBox.getSelectedItem())) continue;
-                JOptionPane.showMessageDialog(this, "Restart SRT for theme changes to take effect!", "Attention", JOptionPane.INFORMATION_MESSAGE);
-                settings.setLookAndFeel(lookAndFeel);
-            }
+        for (LookAndFeel lookAndFeel : settings.getLookAndFeels()) {
+            if (!lookAndFeel.getName().equals(lookFeelComboBox.getSelectedItem())) continue;
+            settings.setLookAndFeel(lookAndFeel);
         }
+        if (!UIManager.getLookAndFeel().getName().equals(settings.getLookAndFeel().getName())) {
+            JOptionPane.showMessageDialog(this, "Restart SRT for theme changes to take effect!", "Attention", JOptionPane.INFORMATION_MESSAGE);
+        }
+
         // ======================
 
         MainWindow.getInstance().refreshAllData();

@@ -12,7 +12,7 @@ import java.util.*;
 import sj.editor.data.InternalFile;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RuleFile extends InternalFile {
     private final RuleBean rule;

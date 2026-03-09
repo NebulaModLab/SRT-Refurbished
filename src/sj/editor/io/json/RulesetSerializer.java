@@ -8,19 +8,15 @@
 
 package sj.editor.io.json;
 
-import com.google.gson.JsonArray;
 import java.lang.reflect.Type;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import sj.editor.data.Ruleset;
 import sj.editor.data.rules.DirectoryFile;
 import sj.editor.data.rules.RuleFile;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RulesetSerializer implements JsonSerializer<Ruleset> {
     // Keys

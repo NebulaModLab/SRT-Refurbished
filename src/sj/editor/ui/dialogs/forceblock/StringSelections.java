@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class StringSelections implements Transferable {
     public static DataFlavor stringSelectionsFlavor = new DataFlavor(java.util.List.class, "List of Strings");

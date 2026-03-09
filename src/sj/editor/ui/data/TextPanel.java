@@ -28,7 +28,7 @@ import sj.editor.ui.SpellcheckManager;
 import sj.misc.Misc;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class TextPanel extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(TextPanel.class.getName());

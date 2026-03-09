@@ -1,20 +1,20 @@
 /**
- * SafariJohn's Rules Tool is an interface for editing Starsector's rules.csv files.
+ * SafariJohn's Rules Tool (SRT) Refurbished is an interface for editing rules.csv files.
  *
- * Copyright (C) 2018-2022 SafariJohn
+ * Copyright (C) 2026 Purple Nebula
  *
- * SafariJohn's Rules Tool is free software: you can redistribute it and/or modify
+ * SafariJohn's Rules Tool (SRT) Refurbished is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * SafariJohn's Rules Tool is distributed in the hope that it will be useful,
+ * SafariJohn's Rules Tool (SRT) Refurbished is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with SafariJohn's Rules Tool.  If not, see <https://www.gnu.org/licenses/>.
+ * along with SafariJohn's Rules Tool (SRT) Refurbished.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package sj.editor;
@@ -24,10 +24,12 @@ import sj.editor.ui.dialogs.SaveCheckDialog;
 import sj.editor.data.rules.RulesManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.awt.Font;
+
+import java.awt.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.List;
 import java.util.logging.*;
 import java.util.prefs.Preferences;
 import javax.swing.*;
@@ -37,7 +39,7 @@ import sj.editor.io.json.*;
 import sj.editor.ui.*;
 
 /**
- * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class MainWindow extends JFrame {
     private static int NEXT_FILE_ID = 1;
@@ -60,7 +62,7 @@ public class MainWindow extends JFrame {
     private MainWindow() {
         logger.log(Level.FINE, "Constructing");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // Handled by exit()
-        setTitle("Name Placeholder"); // SafariJohn's Rules Tool
+        setTitle("SRT Refurbished"); // formerly SafariJohn's Rules Tool
         setMinimumSize(new java.awt.Dimension(700, 500));
         setIconImage(new ImageIcon("icon.png").getImage());
 
@@ -101,19 +103,30 @@ public class MainWindow extends JFrame {
         logger.log(Level.FINE, "Loading window settings from system storage.");
         Preferences prefs = Preferences.userRoot().node("sj/editor/SRT/preferences");
 
-        // XY location
-        logger.log(Level.FINEST, "Getting MainWindow location.");
-        int x = prefs.getInt("mainXLoc", 0);
-        int y = prefs.getInt("mainYLoc", 0);
-        logger.log(Level.FINER, "Setting MainWindow location to {0}, {1}", new Integer[]{x, y});
-        setLocation(x, y);
-
         // Dimensions
         logger.log(Level.FINEST, "Getting MainWindow dimensions.");
         int width = prefs.getInt("mainWidth", 1000);
         int height = prefs.getInt("mainHeight", 700);
+        if (settings.doResetSizeLocation()) {
+            width = 1400;
+            height = 850;
+        }
         logger.log(Level.FINER, "Setting MainWindow width to {0}, height to {1}", new Integer[]{width, height});
         setSize(width, height);
+
+        // XY location
+        logger.log(Level.FINEST, "Getting MainWindow location.");
+        int x = prefs.getInt("mainXLoc", 0);
+        int y = prefs.getInt("mainYLoc", 0);
+        if (settings.doResetSizeLocation()) {
+            logger.log(Level.FINER, "Setting MainWindow location to screen center");
+            setLocationRelativeTo(null); // v3.0.0 - Centers dialog if setting is enabled - Purple Nebula
+//            setLocation(GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint().x, GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint().y);
+        }
+        else {
+            logger.log(Level.FINER, "Setting MainWindow location to {0}, {1}", new Integer[]{x, y});
+            setLocation(x, y);
+        }
 
         logger.log(Level.FINEST, "Getting whether MainWindow maximized.");
         boolean maxH = prefs.getBoolean("mainMaxH", false);
@@ -137,7 +150,7 @@ public class MainWindow extends JFrame {
         try {
 //            int limit = 50000 * 1024;
 //            int count = 10;
-            Handler h0 = new FileHandler("SRT.log", true);
+            Handler h0 = new FileHandler("SRT-Refurbished.log", true);
             h0.setFormatter(new SimpleFormatter() {
 
                 @Override
@@ -156,7 +169,7 @@ public class MainWindow extends JFrame {
         }
 
         logger.log(Level.INFO, "-------------------------------------------");
-        logger.log(Level.INFO, "Initializing SafariJohn's Rules Tool v" + version);
+        logger.log(Level.INFO, "Initializing SafariJohn's Rules Tool (SRT) Refurbished v" + version);
 
         // Load settings
         File settingsFile = new File("settings.json");
@@ -280,7 +293,7 @@ public class MainWindow extends JFrame {
         this.summaryLock = locked;
     }
 
-    public Settings getSettings() {
+    public static Settings getSettings() {
         return settings;
     }
 

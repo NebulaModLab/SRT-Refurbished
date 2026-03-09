@@ -18,7 +18,7 @@ import java.awt.event.*;
 
 /**
  * Description: Used to add or edit a condition/script function.
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class FunctionDialog extends JDialog {
     private final JLabel nameLabel = new JLabel("Name:");

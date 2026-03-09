@@ -9,7 +9,7 @@
 package sj.editor.data;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class SearchManager {
     public static String DICTIONARY_PATH = "spellcheck";

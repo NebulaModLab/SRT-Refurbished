@@ -34,7 +34,7 @@ import sj.editor.data.rules.RulesManager;
 
 /**
  * Used to define and edit commands."
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class EditCommandDialog extends JDialog {
     private static final Logger logger = Logger.getLogger(EditCommandDialog.class.getName());

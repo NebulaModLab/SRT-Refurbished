@@ -19,7 +19,7 @@ import javax.swing.*;
 import static sj.editor.io.json.SettingsSerializer.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class SettingsDeserializer implements JsonDeserializer<Settings> {
 
@@ -30,6 +30,8 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
         File saveLocation = new File("rulesets");
         File modsLocation = null;
         boolean safeMode = false;
+        boolean resetSizeLoc = false;
+        boolean resetDividers = false;
         String language = null;
         String themeName = null;
 
@@ -53,6 +55,14 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
             safeMode = jsonObject.get(SAFE_MODE).getAsBoolean();
         }
 
+        if (jsonObject.get(RESET_SIZE_LOC) != null) {
+            resetSizeLoc = jsonObject.get(RESET_SIZE_LOC).getAsBoolean();
+        }
+
+        if (jsonObject.get(RESET_DIVIDERS) != null) {
+            resetDividers = jsonObject.get(RESET_DIVIDERS).getAsBoolean();
+        }
+
         if (jsonObject.get(LANGUAGE) != null) {
             language = jsonObject.get(LANGUAGE).getAsString();
             if (language.length() != 2) language = Locale.ENGLISH.getLanguage();
@@ -68,6 +78,8 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
         settings.setSaveLocation(saveLocation);
         settings.setModsLocation(modsLocation);
         settings.setSafeMode(safeMode);
+        settings.setResetSizeLocation(resetSizeLoc);
+        settings.setResetDividers(resetDividers);
         if (language == null) settings.setLanguage(null);
         else settings.setLanguage(new Locale(language));
 

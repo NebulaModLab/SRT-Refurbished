@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import sj.editor.data.rules.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class DirectorySerializer implements JsonSerializer<DirectoryFile> {
 

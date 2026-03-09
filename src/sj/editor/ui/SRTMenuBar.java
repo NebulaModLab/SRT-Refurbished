@@ -25,7 +25,7 @@ import sj.editor.io.file.FileIO_V2;
 import sj.editor.ui.dialogs.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class SRTMenuBar extends JMenuBar implements SRTInterface {
     private static final Logger logger = Logger.getLogger(SRTMenuBar.class.getName());

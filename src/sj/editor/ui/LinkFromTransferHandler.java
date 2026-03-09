@@ -19,7 +19,7 @@ import sj.editor.data.rules.RuleFile;
 import sj.editor.data.rules.RulesManager;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class LinkFromTransferHandler extends TransferHandler {
     private static final Logger logger = Logger.getLogger(LinkFromTransferHandler.class.getName());

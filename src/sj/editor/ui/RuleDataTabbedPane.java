@@ -18,7 +18,7 @@ import sj.editor.data.*;
 import sj.editor.ui.data.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RuleDataTabbedPane extends JTabbedPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(RuleDataTabbedPane.class.getName());

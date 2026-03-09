@@ -27,7 +27,7 @@ import sj.editor.ui.dialogs.commands.EditCommandDialog;
 import sj.misc.Misc;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class ConditionsPanel extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(ConditionsPanel.class.getName());

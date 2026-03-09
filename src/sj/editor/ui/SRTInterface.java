@@ -11,7 +11,7 @@ package sj.editor.ui;
 import java.util.prefs.Preferences;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public interface SRTInterface {
     public void getPreferences(Preferences prefs);

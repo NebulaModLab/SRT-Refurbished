@@ -16,7 +16,7 @@ import javax.swing.*;
 import sj.editor.MainWindow;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class AboutDialog extends JDialog {
     private static final Logger logger = Logger.getLogger(AboutDialog.class.getName());
@@ -25,6 +25,7 @@ public class AboutDialog extends JDialog {
     private final JLabel versionLabel = new JLabel();
     private final JLabel description1Label = new JLabel();
     private final JLabel description2Label = new JLabel();
+    private final JLabel description3Label = new JLabel();
     private final JLabel licenseLabel = new JLabel();
     private final JTextArea licenseTextArea = new JTextArea();
     private final JScrollPane licenseScrollPane = new JScrollPane();
@@ -40,35 +41,37 @@ public class AboutDialog extends JDialog {
         setModal(true);
 
 
-        titleLabel.setText("SafariJohn's Rules Tool");
+        titleLabel.setText("SafariJohn's Rules Tool (SRT) Refurbished");
 
         versionLabel.setText("v" + MainWindow.getInstance().getVersion());
 
         description1Label.setText("This program is a modding tool for the game Starsector.");
         description2Label.setText("It provides a convenient interface for modifying rules.csv files.");
+        description3Label.setText("Original by SafariJohn himself, refurbished by Purple Nebula.");
 
         description1Label.setHorizontalAlignment(JLabel.CENTER);
         description2Label.setHorizontalAlignment(JLabel.CENTER);
+        description3Label.setHorizontalAlignment(JLabel.CENTER);
 
         licenseLabel.setText("License:");
 
         licenseTextArea.setText(""
-            + "SafariJohn's Rules Tool is an interface for editing rules.csv files.\n"
+            + "SafariJohn's Rules Tool (SRT) Refurbished is an interface for editing rules.csv files.\n"
             + "\n"
-            + "Copyright (C) 2018-2022 SafariJohn\n"
+            + "Copyright (C) 2026 Purple Nebula\n"
             + "\n"
-            + "SafariJohn's Rules Tool is free software: you can redistribute it and/or modify\n"
+            + "SafariJohn's Rules Tool (SRT) Refurbished is free software: you can redistribute it and/or modify\n"
             + "it under the terms of the GNU General Public License as published by\n"
             + "the Free Software Foundation, either version 3 of the License, or\n"
             + "(at your option) any later version.\n"
             + "\n"
-            + "SafariJohn's Rules Tool is distributed in the hope that it will be useful,\n"
+            + "SafariJohn's Rules Tool (SRT) Refurbished is distributed in the hope that it will be useful,\n"
             + "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
             + "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
             + "GNU General Public License for more details.\n"
             + "\n"
             + "You should have received a copy of the GNU General Public License\n"
-            + "along with SafariJohn's Rules Tool.  If not, see <https://www.gnu.org/licenses/>.");
+            + "along with SafariJohn's Rules Tool (SRT) Refurbished.  If not, see <https://www.gnu.org/licenses/>.");
         licenseTextArea.setEditable(false);
         licenseTextArea.setLineWrap(true);
         licenseTextArea.setWrapStyleWord(true);
@@ -124,6 +127,10 @@ public class AboutDialog extends JDialog {
                             .addGap(10, 10, Short.MAX_VALUE)
                             .addComponent(description2Label)
                             .addGap(10, 10, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, Short.MAX_VALUE)
+                                .addComponent(description3Label)
+                                .addGap(10, 10, Short.MAX_VALUE))
                         .addComponent(licenseLabel)
                         .addComponent(licenseScrollPane, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                         .addComponent(changelogLabel)
@@ -141,6 +148,7 @@ public class AboutDialog extends JDialog {
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(description1Label)
                     .addComponent(description2Label)
+                    .addComponent(description3Label)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(licenseLabel)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)

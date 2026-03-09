@@ -20,7 +20,7 @@ import sj.editor.data.rules.*;
 import sj.editor.ui.dialogs.forceblock.ForceBlockDialog;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class LinkedRulesPanel extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(LinkedRulesPanel.class.getName());

@@ -12,7 +12,7 @@ import java.util.*;
 import sj.editor.data.rules.RuleFile;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class SearchResult {
     public static enum Column {

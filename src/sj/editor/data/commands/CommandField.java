@@ -13,7 +13,7 @@ import java.util.List;
 import sj.editor.data.commands.Command.FieldType;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class CommandField {
     private String name;

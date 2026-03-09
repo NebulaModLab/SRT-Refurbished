@@ -3,7 +3,7 @@ package pn.flatlaf.themes;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 /**
- * @author: Purple Nebula (SRT Revised)
+ * @author: Purple Nebula (SRT Refurbished)
  */
 public class FlatlafAoTD extends FlatDarkLaf {
 

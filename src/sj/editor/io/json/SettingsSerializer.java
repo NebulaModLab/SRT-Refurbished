@@ -17,7 +17,7 @@ import com.google.gson.JsonSerializer;
 import sj.editor.data.Settings;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class SettingsSerializer implements JsonSerializer<Settings> {
 
@@ -25,6 +25,8 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
     public final static String SAVE_LOC = "saveLocation";
     public final static String MODS_LOC = "modsLocation";
     public final static String SAFE_MODE = "safeMode";
+    public final static String RESET_SIZE_LOC = "resetSizeLoc";
+    public final static String RESET_DIVIDERS = "resetDividers";
     public final static String LANGUAGE = "language";
     public final static String THEME = "theme";
 
@@ -40,9 +42,14 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
 
         jsonObject.addProperty(SAFE_MODE, settings.isSafeMode());
 
+        jsonObject.addProperty(RESET_SIZE_LOC, settings.doResetSizeLocation());
+
+        jsonObject.addProperty(RESET_DIVIDERS, settings.doResetDividers());
+
         boolean spellcheckEnabled = settings.getLanguage() != null;
         if (spellcheckEnabled) jsonObject.addProperty(LANGUAGE, settings.getLanguage().getLanguage());
 
+        // v3.0.0 - Adds theme property to the settings file - Purple Nebula
         if (settings.getLookAndFeel() != null) jsonObject.addProperty(THEME, settings.getLookAndFeel().getName());
 
         return jsonObject;

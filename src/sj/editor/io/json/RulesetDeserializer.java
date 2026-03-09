@@ -17,7 +17,7 @@ import sj.editor.data.commands.Command;
 import static sj.editor.io.json.RulesetSerializer.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RulesetDeserializer implements JsonDeserializer<Ruleset> {
 

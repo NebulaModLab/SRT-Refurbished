@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\money\Game Installations\Starsector\SRT-Refurbished-GIT\bin\SRT-Refurbished.jar</jar>
+  <outfile>C:\Users\money\Game Installations\Starsector\SRT-Refurbished-GIT\SRT-Refurbished.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\money\Game Installations\Starsector\SRT-Refurbished-GIT\icon.ico</icon>
+  <singleInstance>
+    <mutexName>SRT Refurbished.exe</mutexName>
+    <windowTitle>SRT Refurbished.exe</windowTitle>
+  </singleInstance>
+  <classPath>
+    <mainClass>sj.editor.MainWindow</mainClass>
+    <cp>lib/gson-2.13.2.jar</cp>
+    <cp>lib/super-csv-2.4.0.jar</cp>
+    <cp>lib/commons-lang3-3.6.jar</cp>
+    <cp>lib/JOrtho-SRT.jar</cp>
+    <cp>lib/flatlaf-3.7.jar</cp>
+  </classPath>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>3.0.0.0</fileVersion>
+    <txtFileVersion>3.0.0</txtFileVersion>
+    <fileDescription>Executable for SRT Refurbished</fileDescription>
+    <copyright>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</copyright>
+    <productVersion>3.0.0.0</productVersion>
+    <txtProductVersion>3.0.0</txtProductVersion>
+    <productName>SRT Refurbished</productName>
+    <companyName></companyName>
+    <internalName>SRT Refurbished</internalName>
+    <originalFilename>SRT Refurbished.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

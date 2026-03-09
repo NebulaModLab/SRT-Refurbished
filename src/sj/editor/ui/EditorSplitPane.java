@@ -29,7 +29,7 @@ import sj.editor.data.rules.*;
 import sj.misc.Misc;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class EditorSplitPane extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(EditorSplitPane.class.getName());
@@ -431,11 +431,21 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
 
     @Override
     public void getPreferences(Preferences prefs) {
+
+        // left divider 410 right divider 540
         logger.log(Level.FINEST, "Getting and setting divider position preferences.");
         int leftLoc = prefs.getInt("mainLeftDivider", 150);
+        if (MainWindow.getSettings() != null && MainWindow.getSettings().doResetDividers()) {
+            leftLoc = 410;
+            prefs.putInt("mainLeftDivider", leftLoc);
+        }
         setDividerLocation(leftLoc);
 
         int rightLoc = prefs.getInt("mainRightDivider", 650);
+        if (MainWindow.getSettings() != null && MainWindow.getSettings().doResetDividers()) {
+            rightLoc = 540;
+            prefs.putInt("mainRightDivider", rightLoc);
+        }
         split2.setDividerLocation(rightLoc);
 
         rulesTree.getPreferences(prefs);

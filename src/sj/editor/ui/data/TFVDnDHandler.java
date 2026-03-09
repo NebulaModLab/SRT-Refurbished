@@ -18,7 +18,7 @@ import sj.editor.data.commands.TFVContainer;
 /**
  * Assumes it is attached to a JList
  *
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class TFVDnDHandler extends TransferHandler {
     @Override

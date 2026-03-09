@@ -23,7 +23,7 @@ import sj.editor.data.*;
 import sj.editor.data.rules.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class FindReplaceDialog extends JDialog {
     public static final int FIND_INDEX = 0;

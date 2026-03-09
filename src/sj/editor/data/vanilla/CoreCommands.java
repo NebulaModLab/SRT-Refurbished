@@ -16,7 +16,7 @@ import sj.editor.data.commands.Command.ShowOn;
 import sj.editor.data.commands.CommandField;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class CoreCommands {
     protected static List<Command> getCommands(int rulesetId) {

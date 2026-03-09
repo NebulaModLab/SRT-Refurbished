@@ -14,7 +14,7 @@ import javax.swing.*;
 import sj.editor.data.commands.CommandField;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class OptionsDialog extends JDialog {
 

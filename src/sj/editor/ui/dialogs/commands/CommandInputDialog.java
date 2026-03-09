@@ -38,7 +38,7 @@ import sj.editor.ui.data.KeyFilter;
 import sj.editor.ui.data.TFVDnDHandler;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class CommandInputDialog extends JDialog {
     private static final Logger logger = Logger.getLogger(CommandInputDialog.class.getName());

@@ -28,7 +28,7 @@ import sj.editor.ui.dialogs.FunctionDialog;
 import sj.misc.Misc;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class ScriptPanel extends JSplitPane implements SRTInterface {
     private static final Logger logger = Logger.getLogger(ScriptPanel.class.getName());

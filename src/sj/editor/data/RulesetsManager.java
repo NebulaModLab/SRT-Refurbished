@@ -17,7 +17,7 @@ import sj.editor.data.commands.Command;
 import sj.editor.data.commands.Command.ShowOn;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RulesetsManager {
     public static enum DataType {

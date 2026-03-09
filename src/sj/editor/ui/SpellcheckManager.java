@@ -13,7 +13,7 @@ import sj.editor.MainWindow;
 import sj.editor.data.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class SpellcheckManager {
     private static final Logger logger = Logger.getLogger(SpellcheckManager.class.getName());

@@ -15,7 +15,7 @@ import sj.editor.data.rules.*;
 import static sj.editor.io.json.RuleSerializer.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RuleDeserializer implements JsonDeserializer<RuleFile> {
 

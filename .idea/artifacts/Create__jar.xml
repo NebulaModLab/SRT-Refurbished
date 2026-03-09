@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="Create .jar">
     <output-path>$PROJECT_DIR$/bin</output-path>
-    <root id="archive" name="SRT.jar">
-      <element id="module-output" name="SRT-Revised" />
+    <root id="archive" name="SRT-Refurbished.jar">
+      <element id="module-output" name="SRT-Refurbished" />
       <element id="directory" name="/META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/modulename/src/META-INF/MANIFEST.MF" />
       </element>

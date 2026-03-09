@@ -21,7 +21,7 @@ import java.io.File;
 import java.util.*;
 
 /**
- * @author SafariJohn (original SRT), Purple Nebula (SRT Revised)
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class Settings {
     private final List<String> previousRulesets;
@@ -31,6 +31,8 @@ public class Settings {
 
     // Safe mode requires changes to be committed to affect the original CSV.
     private boolean safeMode;
+    private boolean resetSizeLocation;
+    private boolean resetDividers;
 
     private Locale language;
     private final List<Locale> availableLanguages;
@@ -46,6 +48,8 @@ public class Settings {
         modsLocation = null;
 
         safeMode = false;
+        resetSizeLocation = false;
+        resetDividers = false;
 
         language = Locale.ENGLISH;
         availableLanguages = new ArrayList<>();
@@ -97,6 +101,22 @@ public class Settings {
 
     public void setSafeMode(boolean safeMode) {
         this.safeMode = safeMode;
+    }
+
+    public boolean doResetSizeLocation() {
+        return resetSizeLocation;
+    }
+
+    public void setResetSizeLocation(boolean resetSizeLocation) {
+        this.resetSizeLocation = resetSizeLocation;
+    }
+
+    public boolean doResetDividers() {
+        return resetDividers;
+    }
+
+    public void setResetDividers(boolean resetDividers) {
+        this.resetDividers = resetDividers;
     }
 
     public boolean isSpellchecking() {

@@ -13,7 +13,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class KeyFilter extends DocumentFilter {
     private int length;

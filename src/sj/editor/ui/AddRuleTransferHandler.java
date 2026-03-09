@@ -19,7 +19,7 @@ import javax.swing.tree.*;
 import sj.editor.MainWindow;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class AddRuleTransferHandler extends TransferHandler {
     private static final Logger logger = Logger.getLogger(AddRuleTransferHandler.class.getName());

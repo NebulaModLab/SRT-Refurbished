@@ -23,7 +23,7 @@ import sj.editor.data.*;
 import sj.editor.data.rules.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class RulesTree extends JTree implements SRTInterface {
     private static final Logger logger = Logger.getLogger(RulesTree.class.getName());

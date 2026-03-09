@@ -13,7 +13,7 @@ import sj.editor.data.FileStack;
 import sj.editor.data.RulesetsManager;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RulesetStack extends FileStack {
 

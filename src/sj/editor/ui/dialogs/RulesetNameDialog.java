@@ -25,7 +25,7 @@ import sj.editor.data.RulesetsManager;
 
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class RulesetNameDialog {
 

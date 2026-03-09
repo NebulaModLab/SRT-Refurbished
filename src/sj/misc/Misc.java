@@ -11,7 +11,7 @@ package sj.misc;
 import java.util.*;
 
 /**
- * @author SafariJohn
+ * @author SafariJohn (original SRT)
  */
 public class Misc {
 
