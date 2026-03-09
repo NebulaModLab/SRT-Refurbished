@@ -25,7 +25,7 @@ import sj.editor.io.file.FileIO_V2;
 import sj.editor.ui.dialogs.*;
 
 /**
- * @author SafariJohn (original SRT)
+ * @author SafariJohn (original SRT), Purple Nebula (SRT Refurbished)
  */
 public class SRTMenuBar extends JMenuBar implements SRTInterface {
     private static final Logger logger = Logger.getLogger(SRTMenuBar.class.getName());
@@ -65,7 +65,7 @@ public class SRTMenuBar extends JMenuBar implements SRTInterface {
         fileMenu.setText("File");
 
         //<editor-fold defaultstate="collapsed" desc=" File Menu Items ">
-        fileMenu.addSeparator();
+//        fileMenu.addSeparator(); // Unnecessary separator? - v3.0.0 - Purple Nebula
 
         newFileMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
         newFileMenuItem.setText("New");
@@ -197,6 +197,8 @@ public class SRTMenuBar extends JMenuBar implements SRTInterface {
             public void actionPerformed(ActionEvent e) { redo(true); }
         });
         editMenu.add(redoTreeEditMenuItem);
+
+        editMenu.addSeparator(); // v3.0.0 - Purple Nebula
 
         findEditMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_MASK));
         findEditMenuItem.setText("Find");
@@ -568,13 +570,14 @@ public class SRTMenuBar extends JMenuBar implements SRTInterface {
         }
     }
 
+    private void openOptionsScreen() {
+        new OptionsDialog().setVisible(true);
+    }
+
     private void openAboutScreen() {
         new AboutDialog().setVisible(true);
     }
 
-    private void openOptionsScreen() {
-        new OptionsDialog().setVisible(true);
-    }
 
     public void updateDialogUI() {
         SwingUtilities.updateComponentTreeUI(findReplace);

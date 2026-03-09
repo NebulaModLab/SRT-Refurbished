@@ -71,6 +71,9 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
         if (jsonObject.get(THEME) != null) {
             themeName = jsonObject.get(THEME).getAsString();
         }
+        else {
+            themeName = "FlatLaf Dark";
+        }
 
 
         Settings settings = new Settings();

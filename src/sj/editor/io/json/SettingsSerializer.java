@@ -50,7 +50,12 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
         if (spellcheckEnabled) jsonObject.addProperty(LANGUAGE, settings.getLanguage().getLanguage());
 
         // v3.0.0 - Adds theme property to the settings file - Purple Nebula
-        if (settings.getLookAndFeel() != null) jsonObject.addProperty(THEME, settings.getLookAndFeel().getName());
+        if (settings.getLookAndFeel() != null) {
+            jsonObject.addProperty(THEME, settings.getLookAndFeel().getName());
+        }
+        else {
+            jsonObject.addProperty(THEME, "FlatLaf Dark");
+        }
 
         return jsonObject;
     }

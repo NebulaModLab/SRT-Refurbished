@@ -1,12 +1,17 @@
-Version 3.0.0 - The Refurbished Update by Purple Nebula
+Refurbished Version 1.0.0 - by Purple Nebula
  Changes:
  - Refurbished Look
  New Stuff:
  - Added a themes feature, allowing the user to change how the tool looks.
-   - Dark mode is now default, no more blinding in the evening :)
+   - Dark mode is now default, to not blind you in the evenings ^^
    - Ships with 9 themes by default
-   - Original theme available for those who prefer it over
+   - Original theme available for those who prefer it
+- Added an option to reset window size & location upon next launch
+   - Additional option to reset dividers as well
+Notes:
+- Kept the original icon/logo so that people don't have to get used to such a change
 
+v=v=v=v=v=v=v=v=v=v=v=v= Original SRT Changelogs =v=v=v=v=v=v=v=v=v=v=v=v
 
 Version 2.4.0
  New Stuff:
