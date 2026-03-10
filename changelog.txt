@@ -6,10 +6,11 @@ Refurbished Version 1.0.0 - by Purple Nebula
    - Dark mode is now default, to not blind you in the evenings ^^
    - Ships with 9 themes by default
    - Original theme available for those who prefer it
-- Added an option to reset window size & location upon next launch
+ - Added an option to reset window size & location upon next launch
    - Additional option to reset dividers as well
+   - Both are enabled by default
 Notes:
-- Kept the original icon/logo so that people don't have to get used to such a change
+ - Slight change to the original icon/logo so that people don't have to get used to such a change
 
 v=v=v=v=v=v=v=v=v=v=v=v= Original SRT Changelogs =v=v=v=v=v=v=v=v=v=v=v=v
 

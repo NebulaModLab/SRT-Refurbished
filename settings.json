@@ -1,9 +1,11 @@
 {
-  "activeRulesets": [],
-  "modsLocation": "C:\\Users\\Tint01\\Fullstack Dev Marshall\\Personal Projects\\Starsector\\Starsector 2025 - 0.98a-RC8\\mods",
+  "activeRulesets": [
+    "Vanilla.csv"
+  ],
+  "modsLocation": "",
   "safeMode": false,
-  "resetSizeLoc": false,
-  "resetDividers": false,
+  "resetSizeLoc": true,
+  "resetDividers": true,
   "language": "en",
   "theme": "FlatLaf Dark"
 }
