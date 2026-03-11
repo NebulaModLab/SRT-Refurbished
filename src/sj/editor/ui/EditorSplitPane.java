@@ -13,8 +13,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,6 +52,15 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
     private boolean suppressChange;
     private long changeTime;
     private boolean updateLater;
+
+
+    public boolean isSuppressChange() {
+        return suppressChange;
+    }
+
+    public JTextField getIdField() {
+        return idField;
+    }
 
     public EditorSplitPane() {
         super(JSplitPane.HORIZONTAL_SPLIT);
@@ -180,6 +188,7 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             //</editor-fold>
         });
         logger.log(Level.FINER, "Adding document listener to id field.");
+        // CONTINUE | DISABLE / REPLACE THIS
         idField.getDocument().addDocumentListener(new DocumentListener() {
             //<editor-fold defaultstate="collapsed">
             @Override
@@ -207,6 +216,31 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             }
             //</editor-fold>
         });
+
+        // Throw SOME kind of listener to the UI
+//.addMouseMotionListener(new MouseMotionListener() {
+//            @Override
+//            public void mouseDragged(MouseEvent e) {
+//                mouseMoved(e);
+//            }
+//
+//            @Override
+//            public void mouseMoved(MouseEvent e) {
+//                if (INSTANCE.editorPanes.isSuppressChange()) return;
+//                JTextField idField = INSTANCE.editorPanes.getIdField();
+//                String newId = "";
+//                try {
+//                    if (!idField.getDocument().getText(0, idField.getDocument().getLength()).equals(newId)) {
+//                        newId = idField.getDocument().getText(0, idField.getDocument().getLength());
+//                        INSTANCE.editorPanes.idUpdated(newId);
+//                    }
+//                } catch (BadLocationException ex) {
+//                    logger.log(Level.INFO, ex.toString(), ex);
+//                }
+//
+//            }
+//        });
+
 
         idField.setToolTipText("<html>The identifier for this rule."
                     + "<br>Rules with the same ID overwrite each other by load order.</html>");
@@ -255,7 +289,7 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
 //        linkedPanel.setBackground(new Color(40,40,40));
     }
 
-    private void idUpdated(String newId) {
+    public void idUpdated(String newId) {
         boolean canRefresh = System.currentTimeMillis() > changeTime;
         changeTime = System.currentTimeMillis() + 100;
 
@@ -272,7 +306,9 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             if (!activeRule.isDirectory()) RulesetsManager.updateIdOverlaps();
 
             writeLock = true;
-            if (canRefresh) MainWindow.getInstance().refreshAllData();
+            if (canRefresh) {
+                MainWindow.getInstance().refreshAllData();
+            }
             else {
                 updateLater = true;
                 java.awt.EventQueue.invokeLater(getRefreshLaterRunnable());
