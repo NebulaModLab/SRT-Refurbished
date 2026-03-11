@@ -345,7 +345,7 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
         }
 
         if (RulesetsManager.isIdOverlapped(activeFile)) idField.setForeground(Color.RED);
-//        else idField.setForeground(Color.BLACK);
+        else idField.setForeground(idLabel.getForeground());
 
         if (activeFile.getRulesetId() < 0) idField.setEditable(false);
         else idField.setEditable(true);

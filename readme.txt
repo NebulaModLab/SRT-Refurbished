@@ -1,7 +1,7 @@
 SafariJohn’s Rules Tool (SRT) Refurbished is the refurbished version of SRT, an editor for modifying dialog rules (rules.csv) for Starsector, an RPG. It makes creating dialog trees easy with powerful features like automatic link detection.
 
 Original SRT Forum Thread: http://fractalsoftworks.com/forum/index.php?topic=13976.0
-Refurbished SRT Forum Thread: -
+Refurbished SRT Forum Thread: https://fractalsoftworks.com/forum/index.php?topic=35040.0
 
 ----------------
 Installation

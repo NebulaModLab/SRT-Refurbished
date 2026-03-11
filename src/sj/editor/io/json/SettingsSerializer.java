@@ -25,6 +25,7 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
     public final static String SAVE_LOC = "saveLocation";
     public final static String MODS_LOC = "modsLocation";
     public final static String SAFE_MODE = "safeMode";
+    public final static String OVERLAP_CHECK = "overlapCheck";
     public final static String RESET_SIZE_LOC = "resetSizeLoc";
     public final static String RESET_DIVIDERS = "resetDividers";
     public final static String LANGUAGE = "language";
@@ -41,6 +42,8 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
         jsonObject.addProperty(MODS_LOC, settings.getModsLocation().toString());
 
         jsonObject.addProperty(SAFE_MODE, settings.isSafeMode());
+
+        jsonObject.addProperty(OVERLAP_CHECK, settings.doRuleOverlapCheck());
 
         jsonObject.addProperty(RESET_SIZE_LOC, settings.doResetSizeLocation());
 

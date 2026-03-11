@@ -5,3 +5,4 @@ Credits
 	Beta Testing: MesoTroniK, Deathfly, Tartiflette, Histidine
 	Linux Compatibility: Armithaig, MShadowy
 	Refurbished version: Purple Nebula
+	Refurbished Testing: Xxarra

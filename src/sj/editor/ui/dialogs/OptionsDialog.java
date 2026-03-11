@@ -33,6 +33,8 @@ public class OptionsDialog extends JDialog {
 
     private final JCheckBox safeModeCheckBox = new JCheckBox();
 
+    private final JCheckBox doRuleOverlapCheckCheckBox = new JCheckBox();
+
     private final JCheckBox resetSizeLocCheckBox = new JCheckBox();
     private final JCheckBox resetDividersCheckBox = new JCheckBox();
 
@@ -54,7 +56,7 @@ public class OptionsDialog extends JDialog {
 
     public OptionsDialog() {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setMinimumSize(new Dimension(400, 350)); // 250
+        setMinimumSize(new Dimension(400, 400)); // 250
         setLocationRelativeTo(null); // v3.0.0 - Centers dialog when opened - Purple Nebula
         setTitle("Options");
         setAlwaysOnTop(true);
@@ -92,6 +94,10 @@ public class OptionsDialog extends JDialog {
         safeModeCheckBox.setText("Safe Mode");
         safeModeCheckBox.setToolTipText("Safe mode requires changes to be \"committed\" to affect the original CSV.");
         safeModeCheckBox.setSelected(settings.isSafeMode());
+
+        doRuleOverlapCheckCheckBox.setText("Check rule id/name overlap");
+        doRuleOverlapCheckCheckBox.setToolTipText("Enabled/Disables rule id & name overlap checking. Enabled can cause input lag when editing a rule ID.");
+        doRuleOverlapCheckCheckBox.setSelected(settings.doRuleOverlapCheck());
 
         resetSizeLocCheckBox.setText("Reset window size & location upon restart");
         resetSizeLocCheckBox.setToolTipText("Resets the window size and location upon restart");
@@ -192,6 +198,7 @@ public class OptionsDialog extends JDialog {
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(modsLocButton))
                         .addComponent(safeModeCheckBox)
+                        .addComponent(doRuleOverlapCheckCheckBox)
                         .addComponent(resetSizeLocCheckBox)
                         .addComponent(resetDividersCheckBox)
                         .addComponent(enableSpellcheckBox)
@@ -226,6 +233,8 @@ public class OptionsDialog extends JDialog {
                         .addComponent(modsLocButton))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(safeModeCheckBox)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(doRuleOverlapCheckCheckBox)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(resetSizeLocCheckBox)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -305,6 +314,7 @@ public class OptionsDialog extends JDialog {
 //        settings.setSaveLocation(new File(saveLocField.getText()));
         settings.setModsLocation(new File(modsLocField.getText()));
         settings.setSafeMode(safeModeCheckBox.isSelected());
+        settings.setDoRuleOverlapCheck(doRuleOverlapCheckCheckBox.isSelected());
         settings.setResetSizeLocation(resetSizeLocCheckBox.isSelected());
         settings.setResetDividers(resetDividersCheckBox.isSelected());
 

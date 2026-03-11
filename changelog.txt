@@ -1,3 +1,10 @@
+Refurbished Version 1.0.1
+ Fixes:
+ - Fixed idField red text staying red when it is/was a duplicate instead of returning to the normal text color.
+ New Stuff:
+ - Added a setting to disable rule id/name overlap due to lag caused by current rule overlap implementation
+
+
 Refurbished Version 1.0.0 - by Purple Nebula
  Changes:
  - Refurbished Look

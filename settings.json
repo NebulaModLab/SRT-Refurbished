@@ -2,8 +2,9 @@
   "activeRulesets": [
     "Vanilla.csv"
   ],
-  "modsLocation": "",
+  "modsLocation": "C:\\Users\\money\\Game Installations\\Starsector\\SRT-Refurbished-GIT",
   "safeMode": false,
+  "overlapCheck": true,
   "resetSizeLoc": true,
   "resetDividers": true,
   "language": "en",

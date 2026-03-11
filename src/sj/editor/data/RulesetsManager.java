@@ -303,8 +303,10 @@ public class RulesetsManager {
 
     public static void updateIdOverlaps() {
         idOverlaps.clear();
-        for (Ruleset ruleset : rulesets) {
-            updateIdOverlapsRecursive(ruleset.getRootDirectory());
+        if (MainWindow.getSettings().doRuleOverlapCheck()) {
+            for (Ruleset ruleset : rulesets) {
+                updateIdOverlapsRecursive(ruleset.getRootDirectory());
+            }
         }
     }
 

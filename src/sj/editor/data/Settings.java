@@ -31,6 +31,7 @@ public class Settings {
 
     // Safe mode requires changes to be committed to affect the original CSV.
     private boolean safeMode;
+    private boolean doRuleOverlapCheck;
     private boolean resetSizeLocation;
     private boolean resetDividers;
 
@@ -48,6 +49,7 @@ public class Settings {
         modsLocation = null;
 
         safeMode = false;
+        doRuleOverlapCheck = false;
         resetSizeLocation = false;
         resetDividers = false;
 
@@ -101,6 +103,14 @@ public class Settings {
 
     public void setSafeMode(boolean safeMode) {
         this.safeMode = safeMode;
+    }
+
+    public boolean doRuleOverlapCheck() {
+        return doRuleOverlapCheck;
+    }
+
+    public void setDoRuleOverlapCheck(boolean doRuleOverlapCheck) {
+        this.doRuleOverlapCheck = doRuleOverlapCheck;
     }
 
     public boolean doResetSizeLocation() {

@@ -30,6 +30,7 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
         File saveLocation = new File("rulesets");
         File modsLocation = null;
         boolean safeMode = false;
+        boolean doOverlapCheck = false;
         boolean resetSizeLoc = false;
         boolean resetDividers = false;
         String language = null;
@@ -53,6 +54,10 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
 
         if (jsonObject.get(SAFE_MODE) != null) {
             safeMode = jsonObject.get(SAFE_MODE).getAsBoolean();
+        }
+
+        if (jsonObject.get(OVERLAP_CHECK) != null) {
+            doOverlapCheck = jsonObject.get(OVERLAP_CHECK).getAsBoolean();
         }
 
         if (jsonObject.get(RESET_SIZE_LOC) != null) {
@@ -81,6 +86,7 @@ public class SettingsDeserializer implements JsonDeserializer<Settings> {
         settings.setSaveLocation(saveLocation);
         settings.setModsLocation(modsLocation);
         settings.setSafeMode(safeMode);
+        settings.setDoRuleOverlapCheck(doOverlapCheck);
         settings.setResetSizeLocation(resetSizeLoc);
         settings.setResetDividers(resetDividers);
         if (language == null) settings.setLanguage(null);
