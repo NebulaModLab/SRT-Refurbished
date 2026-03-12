@@ -301,6 +301,38 @@ public class RulesetsManager {
         return null;
     }
 
+    public static HashMap<String, RuleFile> nameRepository = new HashMap<String, RuleFile>();
+
+//    public static void updateRuleRepo() {
+////        idOverlaps.clear();
+////        if (MainWindow.getSettings().doRuleOverlapCheck()) {
+//            for (Ruleset ruleset : MainWindow.getSettings().getPreviousRulesets()) {
+//                updateIdOverlapsRecursive(ruleset.getRootDirectory());
+//            }
+////        }
+//    }
+//
+//    private static void goThroughBranches(DirectoryFile dir) {
+//
+//        for (RuleFile leaf : dir.getLeaves()) {
+//            nameRepository.put(leaf.getId(),leaf);
+//        }
+//
+//        for (DirectoryFile branch : dir.getBranches()) {
+//            updateIdOverlapsRecursive(branch);
+//        }
+//
+//    }
+
+    public static void checkExistingRuleOverlap(String newId) {
+        idOverlaps.clear();
+        for (Map.Entry<String, RuleFile> entry : nameRepository.entrySet()) {
+            if (!entry.getValue().getRule().getId().equals(newId)) continue;
+            idOverlaps.add(entry.getValue().getRule().getId());
+        }
+
+    }
+
     public static void updateIdOverlaps() {
         idOverlaps.clear();
         if (MainWindow.getSettings().doRuleOverlapCheck()) {

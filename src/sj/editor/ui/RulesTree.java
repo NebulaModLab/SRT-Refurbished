@@ -459,6 +459,10 @@ public class RulesTree extends JTree implements SRTInterface {
             setSelectionPaths(selections.toArray(paths));
         }
         pathLock = false; // Reenable
+
+
+//        RulesetsManager.updateRuleRepo();
+//        logger.log(Level.FINER,"Ran update rule repo");
     }
 
     @Override

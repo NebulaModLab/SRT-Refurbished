@@ -10,7 +10,7 @@ A refurbished version of SafariJohn's Rules Tool, bringing a couple changes & ad
 - Kept the original icon/logo so that people don't have to get used to such a change
 
 ## To-Do
-- Currently, there are no changes / features planned.
+- Fix rule overlap performance impact
 
 ## Why make this?
 To be honest, the initial idea was to make a dark mode version due to me being done 

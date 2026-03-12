@@ -98,6 +98,45 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             public void actionPerformed(ActionEvent e) { addRule(); }
         });
 
+        // SET IDFIELD LISTENER
+        idField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (isSuppressChange()) return;
+                String newId = "";
+//                try {
+//                    if (!idField.getDocument().getText(0, idField.getDocument().getLength()).equals(newId)) {
+//                        newId = idField.getDocument().getText(0, idField.getDocument().getLength());
+//
+//                    }
+//                } catch (BadLocationException ex) {
+//                    logger.log(Level.INFO, ex.toString(), ex);
+//                }
+            }
+        });
+
+        // SET TREE LISTENER
+        rulesScrollPane.addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                mouseMoved(e);
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+//                if (isSuppressChange()) return;
+                idField.setFocusable(false);
+                idField.setFocusable(true);
+
+            }
+        });
+
+
         logger.log(Level.FINER, "Creating rules scroll pane.");
         rulesScrollPane.setBorder(BorderFactory.createEtchedBorder());
         rulesScrollPane.setViewportView(rulesTree);
@@ -303,7 +342,10 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             }
 
             activeRule.getRule().setId(newId);
-            if (!activeRule.isDirectory()) RulesetsManager.updateIdOverlaps();
+            if (!activeRule.isDirectory()) {
+                RulesetsManager.checkExistingRuleOverlap(newId);
+//                RulesetsManager.updateIdOverlaps();
+            }
 
             writeLock = true;
             if (canRefresh) {

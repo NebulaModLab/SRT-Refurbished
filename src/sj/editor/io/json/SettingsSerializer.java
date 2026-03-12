@@ -52,7 +52,7 @@ public class SettingsSerializer implements JsonSerializer<Settings> {
         boolean spellcheckEnabled = settings.getLanguage() != null;
         if (spellcheckEnabled) jsonObject.addProperty(LANGUAGE, settings.getLanguage().getLanguage());
 
-        // v3.0.0 - Adds theme property to the settings file - Purple Nebula
+        // v1.0.0 - Adds theme property to the settings file - Purple Nebula
         if (settings.getLookAndFeel() != null) {
             jsonObject.addProperty(THEME, settings.getLookAndFeel().getName());
         }

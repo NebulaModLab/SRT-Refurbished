@@ -9,7 +9,7 @@
 package sj.editor.io.file;
 
 import com.google.gson.*;
-import com.google.gson.stream.MalformedJsonException;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -243,7 +243,15 @@ public class FileIO_V2 {
         RulesetsManager.getRulesets().add(ruleset);
         RulesetsManager.updateIdOverlaps();
 
+        // CONTINUE - v1.0.2 - register all rules upon loading CSVs - Purple Nebula
+        for (RuleFile rule : rules) {
+            if (rule instanceof DirectoryFile) continue;
+//            if (RulesetsManager.nameRepository.containsKey())
+            RulesetsManager.nameRepository.put(rule.getRule().getId(),rule); // rule.getId()
+        }
+
         return true;
+
     }
 
     private static String unEscapeNewlines(String s) {

@@ -20,6 +20,7 @@
 package sj.editor;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import sj.editor.data.rules.RuleFile;
 import sj.editor.ui.dialogs.SaveCheckDialog;
 import sj.editor.data.rules.RulesManager;
 import com.google.gson.Gson;
@@ -46,7 +47,7 @@ public class MainWindow extends JFrame {
     private static MainWindow INSTANCE;
     private static final Logger logger = Logger.getLogger(MainWindow.class.getName());
 
-    private static final String version = "3.0.0";
+    private static final String version = "1.0.2";
 
     private final SRTMenuBar menuBar;
     private final EditorSplitPane editorPanes;
@@ -58,6 +59,7 @@ public class MainWindow extends JFrame {
 
     private static Settings settings = new Settings();
 
+    private static HashMap<String, RuleFile> nameRepository = new HashMap<>();
 
     private MainWindow() {
         logger.log(Level.FINE, "Constructing");
@@ -120,7 +122,7 @@ public class MainWindow extends JFrame {
         int y = prefs.getInt("mainYLoc", 0);
         if (settings.doResetSizeLocation()) {
             logger.log(Level.FINER, "Setting MainWindow location to screen center");
-            setLocationRelativeTo(null); // v3.0.0 - Centers dialog if setting is enabled - Purple Nebula
+            setLocationRelativeTo(null); // v1.0.0 - Centers dialog if setting is enabled - Purple Nebula
 //            setLocation(GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint().x, GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint().y);
         }
         else {
@@ -141,6 +143,7 @@ public class MainWindow extends JFrame {
         // Propagate Preferences object
         menuBar.getPreferences(prefs);
         editorPanes.getPreferences(prefs);
+
     }
 
     public static void main(String[] args) {
@@ -404,7 +407,7 @@ public class MainWindow extends JFrame {
 
     public void exit() {
 
-        // v3.0.0 - Update theme when changed in the settings - Purple Nebula
+        // v1.0.0 - Update theme when changed in the settings - Purple Nebula
         if (UIManager.getLookAndFeel() != settings.getLookAndFeel()) {
             try {
                 UIManager.setLookAndFeel(settings.getLookAndFeel());

@@ -57,7 +57,7 @@ public class OptionsDialog extends JDialog {
     public OptionsDialog() {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setMinimumSize(new Dimension(400, 400)); // 250
-        setLocationRelativeTo(null); // v3.0.0 - Centers dialog when opened - Purple Nebula
+        setLocationRelativeTo(null); // v1.0.0 - Centers dialog when opened - Purple Nebula
         setTitle("Options");
         setAlwaysOnTop(true);
         setResizable(false);
@@ -150,7 +150,7 @@ public class OptionsDialog extends JDialog {
             }
         });
 
-        // v3.0.0 - Purple Nebula
+        // v1.0.0 - Purple Nebula
         lookFeelLabel.setText("Theme:");
         lookFeelComboBox.setEditable(false);
 
@@ -326,7 +326,7 @@ public class OptionsDialog extends JDialog {
         }
         SpellcheckManager.enableSpellchecking(enableSpellcheckBox.isSelected());
 
-        // v3.0.0 - Purple Nebula
+        // v1.0.0 - Purple Nebula
         for (LookAndFeel lookAndFeel : settings.getLookAndFeels()) {
             if (!lookAndFeel.getName().equals(lookFeelComboBox.getSelectedItem())) continue;
             settings.setLookAndFeel(lookAndFeel);

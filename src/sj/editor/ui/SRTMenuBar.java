@@ -65,7 +65,7 @@ public class SRTMenuBar extends JMenuBar implements SRTInterface {
         fileMenu.setText("File");
 
         //<editor-fold defaultstate="collapsed" desc=" File Menu Items ">
-//        fileMenu.addSeparator(); // Unnecessary separator? - v3.0.0 - Purple Nebula
+//        fileMenu.addSeparator(); // Unnecessary separator? - v1.0.0 - Purple Nebula
 
         newFileMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
         newFileMenuItem.setText("New");
@@ -198,7 +198,7 @@ public class SRTMenuBar extends JMenuBar implements SRTInterface {
         });
         editMenu.add(redoTreeEditMenuItem);
 
-        editMenu.addSeparator(); // v3.0.0 - Purple Nebula
+        editMenu.addSeparator(); // v1.0.0 - Purple Nebula
 
         findEditMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_MASK));
         findEditMenuItem.setText("Find");
