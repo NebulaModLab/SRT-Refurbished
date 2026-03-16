@@ -17,7 +17,10 @@ import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.text.BadLocationException;
 import javax.swing.tree.*;
+
+import jdk.jfr.internal.tool.Main;
 import sj.editor.MainWindow;
 import sj.editor.data.*;
 import sj.editor.data.rules.*;
@@ -84,6 +87,14 @@ public class RulesTree extends JTree implements SRTInterface {
             @Override
             public void mouseClicked(MouseEvent e) {
 //                if (e.getClickCount() >= 2) {
+                    JTextField idField = MainWindow.getInstance().getEditorPanes().getIdField();
+                try {
+                    String newId = idField.getDocument().getText(0, idField.getDocument().getLength());
+                    MainWindow.getInstance().getEditorPanes().idUpdated(newId);
+                } catch (BadLocationException ex) {
+                    throw new RuntimeException(ex);
+                }
+
                     RulesManager.setActiveRule(selected);
                     MainWindow.getInstance().refreshAllData();
 //                }
@@ -460,9 +471,6 @@ public class RulesTree extends JTree implements SRTInterface {
         }
         pathLock = false; // Reenable
 
-
-//        RulesetsManager.updateRuleRepo();
-//        logger.log(Level.FINER,"Ran update rule repo");
     }
 
     @Override

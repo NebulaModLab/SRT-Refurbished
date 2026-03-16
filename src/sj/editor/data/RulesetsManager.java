@@ -301,44 +301,33 @@ public class RulesetsManager {
         return null;
     }
 
-    public static HashMap<String, RuleFile> nameRepository = new HashMap<String, RuleFile>();
-
-//    public static void updateRuleRepo() {
-////        idOverlaps.clear();
-////        if (MainWindow.getSettings().doRuleOverlapCheck()) {
-//            for (Ruleset ruleset : MainWindow.getSettings().getPreviousRulesets()) {
-//                updateIdOverlapsRecursive(ruleset.getRootDirectory());
-//            }
-////        }
+//    public static HashMap<String, RuleFile> nameRepository = new HashMap<String, RuleFile>();
+//
+//
+//    public static void checkExistingRuleOverlap(String newId) {
+//        idOverlaps.clear();
+//        for (Map.Entry<String, RuleFile> entry : nameRepository.entrySet()) {
+//            if (!entry.getValue().getRule().getId().equals(newId)) continue;
+//            idOverlaps.add(entry.getValue().getRule().getId());
+//        }
 //    }
 //
-//    private static void goThroughBranches(DirectoryFile dir) {
-//
-//        for (RuleFile leaf : dir.getLeaves()) {
-//            nameRepository.put(leaf.getId(),leaf);
+//    public static boolean checkRuleIdInRepo(String ruleId) {
+//        for (Map.Entry<String, RuleFile> entry : nameRepository.entrySet()) {
+//            if (entry.getKey().equals(ruleId)) return true;
 //        }
-//
-//        for (DirectoryFile branch : dir.getBranches()) {
-//            updateIdOverlapsRecursive(branch);
-//        }
-//
+//        return false;
 //    }
-
-    public static void checkExistingRuleOverlap(String newId) {
-        idOverlaps.clear();
-        for (Map.Entry<String, RuleFile> entry : nameRepository.entrySet()) {
-            if (!entry.getValue().getRule().getId().equals(newId)) continue;
-            idOverlaps.add(entry.getValue().getRule().getId());
-        }
-
-    }
+//
+//    public static void addRuleToRepo(RuleFile ruleFile) {
+//        if (checkRuleIdInRepo(ruleFile.getRule().getId())) return;
+//        nameRepository.put(ruleFile.getRule().getId(),ruleFile);
+//    }
 
     public static void updateIdOverlaps() {
         idOverlaps.clear();
-        if (MainWindow.getSettings().doRuleOverlapCheck()) {
-            for (Ruleset ruleset : rulesets) {
-                updateIdOverlapsRecursive(ruleset.getRootDirectory());
-            }
+        for (Ruleset ruleset : rulesets) {
+            updateIdOverlapsRecursive(ruleset.getRootDirectory());
         }
     }
 

@@ -523,4 +523,9 @@ public class MainWindow extends JFrame {
 
         if (!skipGCDuringOpen) System.gc();
     }
+
+    public EditorSplitPane getEditorPanes() {
+        return editorPanes;
+    }
+
 }

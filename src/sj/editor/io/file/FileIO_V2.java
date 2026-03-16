@@ -244,11 +244,11 @@ public class FileIO_V2 {
         RulesetsManager.updateIdOverlaps();
 
         // CONTINUE - v1.0.2 - register all rules upon loading CSVs - Purple Nebula
-        for (RuleFile rule : rules) {
-            if (rule instanceof DirectoryFile) continue;
-//            if (RulesetsManager.nameRepository.containsKey())
-            RulesetsManager.nameRepository.put(rule.getRule().getId(),rule); // rule.getId()
-        }
+//        for (RuleFile rule : rules) {
+//            if (rule instanceof DirectoryFile) continue;
+////            if (RulesetsManager.nameRepository.containsKey())
+//            RulesetsManager.nameRepository.put(rule.getRule().getId(),rule); // rule.getId()
+//        }
 
         return true;
 

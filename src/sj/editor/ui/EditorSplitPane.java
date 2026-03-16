@@ -14,6 +14,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,8 +46,11 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
     private final JPanel dataPanel = new JPanel();
     private final JLabel idLabel = new JLabel("ID:");
     private final JTextField idField = new JTextField();
+    private final JButton confirmIdChangeButton = new JButton();
     private final RuleDataTabbedPane ruleDataPanes;
     private final LinkedRulesPanel linkedPanel;
+
+    private final HashMap<String,Color> defaultColors = new HashMap<>();
 
     private boolean writeLock;
     private boolean suppressChange;
@@ -66,6 +70,7 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
         super(JSplitPane.HORIZONTAL_SPLIT);
         logger.log(Level.FINE, "Constructing");
         setBorder(BorderFactory.createEmptyBorder());
+        setDefaultColors();
 
         rulesTree = new RulesTree();
         ruleDataPanes = new RuleDataTabbedPane();
@@ -109,32 +114,93 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             public void focusLost(FocusEvent e) {
                 if (isSuppressChange()) return;
                 String newId = "";
-//                try {
+                try {
 //                    if (!idField.getDocument().getText(0, idField.getDocument().getLength()).equals(newId)) {
-//                        newId = idField.getDocument().getText(0, idField.getDocument().getLength());
-//
+                        newId = idField.getDocument().getText(0, idField.getDocument().getLength());
+                        resetIdUIGroup();
+                        idUpdated(newId);
 //                    }
-//                } catch (BadLocationException ex) {
-//                    logger.log(Level.INFO, ex.toString(), ex);
-//                }
+                } catch (BadLocationException ex) {
+                    logger.log(Level.INFO, ex.toString(), ex);
+                }
+            }
+        });
+
+
+        confirmIdChangeButton.setText("Confirm");
+        confirmIdChangeButton.setToolTipText("<html>Button to confirm ID changes."
+                + "<br>Pressing ENTER or clicking an different editor element also confirms changes.</html>"
+        );
+        confirmIdChangeButton.setEnabled(false);
+        confirmIdChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetIdUIGroup();
+            }
+        });
+
+//        idField.addMouseListener(new MouseListener() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mousePressed(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mouseReleased(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                idField.setFocusable(false);
+//                idField.setFocusable(true);
+//            }
+//        });
+
+        idField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    resetIdUIGroup();
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
             }
         });
 
         // SET TREE LISTENER
-        rulesScrollPane.addMouseMotionListener(new MouseMotionListener() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                mouseMoved(e);
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent e) {
-//                if (isSuppressChange()) return;
-                idField.setFocusable(false);
-                idField.setFocusable(true);
-
-            }
-        });
+//        rulesScrollPane.addMouseMotionListener(new MouseMotionListener() {
+//            @Override
+//            public void mouseDragged(MouseEvent e) {
+//                mouseMoved(e);
+//            }
+//
+//            @Override
+//            public void mouseMoved(MouseEvent e) {
+////                if (isSuppressChange()) return;
+//                idField.setFocusable(false);
+//                idField.setFocusable(true);
+//
+//            }
+//        });
 
 
         logger.log(Level.FINER, "Creating rules scroll pane.");
@@ -242,7 +308,16 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                if (suppressChange) return;
+//                if (suppressChange) return;
+//
+//                String newId = "";
+//                try {
+//                    newId = e.getDocument().getText(0, e.getDocument().getLength());
+//                } catch (BadLocationException ex) {
+//                    logger.log(Level.INFO, ex.toString(), ex);
+//                }
+//
+//                idUpdated(newId);
 
                 String newId = "";
                 try {
@@ -250,8 +325,18 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
                 } catch (BadLocationException ex) {
                     logger.log(Level.INFO, ex.toString(), ex);
                 }
+                if (!RulesManager.getActiveRule().getRule().getId().equals(newId)) {
+                    // CONTINUE - Change to button
+                    confirmIdChangeButton.setEnabled(true);
+                    idField.setForeground(Color.WHITE);
+                    idField.setBackground(new Color(110, 86, 41));
+                }
+                else {
+                    confirmIdChangeButton.setEnabled(false);
+                    idField.setForeground(defaultColors.get("idFieldFg"));
+                    idField.setBackground(defaultColors.get("idFieldBg"));
+                }
 
-                idUpdated(newId);
             }
             //</editor-fold>
         });
@@ -282,7 +367,10 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
 
 
         idField.setToolTipText("<html>The identifier for this rule."
-                    + "<br>Rules with the same ID overwrite each other by load order.</html>");
+                    + "<br>Background turns yellow-orange with unconfirmed changes."
+                    + "<br>Press ENTER, the Confirm button, or any other editor element to confirm changes."
+                    + "<br>Rules with the same ID overwrite each other by load order.</html>"
+        );
 
         logger.log(Level.FINE, "Laying out rule data panel.");
         layout = new GroupLayout(dataPanel);
@@ -295,7 +383,9 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(idLabel)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(idField))
+                            .addComponent(idField)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(confirmIdChangeButton))
                         .addComponent(ruleDataPanes))
                     .addContainerGap())
         );
@@ -306,7 +396,8 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(idLabel)
-                        .addComponent(idField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(idField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(confirmIdChangeButton))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(ruleDataPanes, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap())
@@ -328,7 +419,20 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
 //        linkedPanel.setBackground(new Color(40,40,40));
     }
 
-    public void idUpdated(String newId) {
+    private void resetIdUIGroup() {
+        idField.setFocusable(false);
+        idField.setFocusable(true);
+        idField.setForeground(defaultColors.get("idFieldFg"));
+        idField.setBackground(defaultColors.get("idFieldBg"));
+        confirmIdChangeButton.setEnabled(false);
+    }
+
+    private void setDefaultColors() {
+        defaultColors.put("idFieldFg",idField.getForeground());
+        defaultColors.put("idFieldBg",idField.getBackground());
+    }
+
+    public void  idUpdated(String newId) {
         boolean canRefresh = System.currentTimeMillis() > changeTime;
         changeTime = System.currentTimeMillis() + 100;
 
@@ -342,9 +446,10 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
             }
 
             activeRule.getRule().setId(newId);
-            if (!activeRule.isDirectory()) {
-                RulesetsManager.checkExistingRuleOverlap(newId);
-//                RulesetsManager.updateIdOverlaps();
+            if (!activeRule.isDirectory() && MainWindow.getSettings().doRuleOverlapCheck()) {
+                // CONTINUE
+//                RulesetsManager.checkExistingRuleOverlap(newId);
+                RulesetsManager.updateIdOverlaps();
             }
 
             writeLock = true;
@@ -397,6 +502,7 @@ public class EditorSplitPane extends JSplitPane implements SRTInterface {
         RulesetsManager.backupTree(newFile);
 
         ((DirectoryFile) dir).addLeaf(newFile);
+
         RulesetsManager.updateIdOverlaps();
         MainWindow.getInstance().refreshAllData();
     }
