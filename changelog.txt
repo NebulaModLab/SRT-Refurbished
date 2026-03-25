@@ -1,3 +1,9 @@
+Refurbished Version 1.1.0
+ Changes:
+ - Reworked the ID duplicate/overlap checking logic, ID changes no longer lag the input.
+   - Added ID changes confirmation step by either hitting Enter, clicking confirm, or clicking on a different UI panel.
+   - Check is now ran upon confirming the ID changes.
+
 Refurbished Version 1.0.1
  Fixes:
  - Fixed idField red text staying red when it is/was a duplicate instead of returning to the normal text color.

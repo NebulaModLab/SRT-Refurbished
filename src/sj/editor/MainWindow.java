@@ -427,6 +427,7 @@ public class MainWindow extends JFrame {
         SaveCheckDialog dialog = null;
         if (!saveRulesets.isEmpty()) {
             dialog = new SaveCheckDialog(saveRulesets);
+            dialog.setLocationRelativeTo(MainWindow.getInstance());
             dialog.setVisible(true);
         }
         if (dialog != null && dialog.exitCanceled()) return;
